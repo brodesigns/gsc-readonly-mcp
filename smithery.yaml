@@ -1,0 +1,22 @@
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - serviceAccountKeyFile
+    properties:
+      serviceAccountKeyFile:
+        type: string
+        description: Absoluter Pfad zur Service-Account-JSON-Key-Datei.
+      siteUrl:
+        type: string
+        description: Standard-Property, z.B. 'https://example.de/' oder 'sc-domain:example.de'.
+  commandFunction: |-
+    (config) => ({
+      command: 'npx',
+      args: ['-y', '@brodesigns/gsc-readonly-mcp'],
+      env: {
+        GSC_SERVICE_ACCOUNT_KEY_FILE: config.serviceAccountKeyFile,
+        GSC_SITE_URL: config.siteUrl || ''
+      }
+    })
