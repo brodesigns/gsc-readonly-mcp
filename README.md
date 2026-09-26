@@ -1,3 +1,5 @@
+![gsc-readonly-mcp](.github/assets/banner.webp)
+
 # gsc-readonly-mcp
 
 Read-only [MCP](https://modelcontextprotocol.io/) server for the Google Search
