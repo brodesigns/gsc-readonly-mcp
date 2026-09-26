@@ -1,0 +1,33 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.brodesigns/gsc-readonly-mcp",
+  "description": "Read-only MCP server for the Google Search Console API. No write scope at all.",
+  "repository": {
+    "url": "https://github.com/brodesigns/gsc-readonly-mcp",
+    "source": "github"
+  },
+  "version": "0.1.2",
+  "websiteUrl": "https://brodesigns.de",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@brodesigns/gsc-readonly-mcp",
+      "version": "0.1.2",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "GSC_SERVICE_ACCOUNT_KEY_FILE",
+          "description": "Absolute path to a Google Cloud service account JSON key file with Search Console API access.",
+          "isRequired": true
+        },
+        {
+          "name": "GSC_SITE_URL",
+          "description": "Default property, e.g. 'https://example.com/' or 'sc-domain:example.com'. Optional, every tool also accepts a site_url argument.",
+          "isRequired": false
+        }
+      ]
+    }
+  ]
+}
