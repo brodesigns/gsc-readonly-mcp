@@ -1,6 +1,7 @@
 {
   "name": "@brodesigns/gsc-readonly-mcp",
   "version": "0.1.2",
+  "mcpName": "io.github.brodesigns/gsc-readonly-mcp",
   "description": "Read-only MCP server for the Google Search Console API: search analytics, sitemap status, URL inspection. No write scope at all.",
   "type": "module",
   "license": "MIT",
