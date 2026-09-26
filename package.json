@@ -1,0 +1,52 @@
+{
+  "name": "@brodesigns/gsc-readonly-mcp",
+  "version": "0.1.0",
+  "description": "Read-only MCP server for the Google Search Console API: search analytics, sitemap status, URL inspection. No write scope at all.",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "BroDesigns",
+    "url": "https://brodesigns.de"
+  },
+  "homepage": "https://brodesigns.de",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brodesigns/gsc-readonly-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/brodesigns/gsc-readonly-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "google-search-console",
+    "search-console",
+    "seo",
+    "claude"
+  ],
+  "bin": {
+    "gsc-readonly-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "google-auth-library": "^10.5.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.3",
+    "vitest": "^4.1.11"
+  }
+}
