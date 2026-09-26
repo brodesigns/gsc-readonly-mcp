@@ -37,10 +37,15 @@ Every finding reviewed by hand:
   PR; a new high/critical advisory in a runtime dependency fails the build.
 - **[CodeQL](https://codeql.github.com/)** runs on every push, PR, and weekly
   on a schedule.
-- **Releases are published with [npm provenance](https://docs.npmjs.com/generating-provenance-statements)**
-  via GitHub Actions using [Trusted Publishing](https://docs.npmjs.com/trusted-publishers)
-  (OIDC, no long-lived `NPM_TOKEN` in this repository at all). Verify any
-  release with `npm view @brodesigns/gsc-readonly-mcp@<version> --json | grep provenance`
+- **Releases go through npm's staged-publish flow.** GitHub Actions
+  authenticates via [Trusted Publishing](https://docs.npmjs.com/trusted-publishers)
+  (OIDC, no long-lived `NPM_TOKEN` in this repository at all) and runs
+  `npm stage publish --provenance`, which uploads and signs the package but
+  does **not** make it live. A maintainer with 2FA then runs
+  `npm stage approve <stage-id>` by hand to actually publish it. This means a
+  compromised or malicious CI run can never ship a version on its own, it can
+  only stage one for a human to reject. Verify any release with
+  `npm view @brodesigns/gsc-readonly-mcp@<version> --json | grep provenance`
   or the provenance badge on the [npm package page](https://www.npmjs.com/package/@brodesigns/gsc-readonly-mcp).
 - **`master` is protected**: no direct pushes, every change goes through a
   pull request with CI and CodeQL passing first.
